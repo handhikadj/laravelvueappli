@@ -1,5 +1,8 @@
 	<template>
 		<div>
+			
+			<loader v-if="loader"></loader>
+
 			<div class="container container-style">
 				<div class="datadata" id="datadata">
 					<a href="javascript:void(0)" class="btn btn-info" id="tambah"  data-toggle="modal" data-target="#tambahModal" @click="$router.push('/create')"><i class="fas fa-pencil-alt mr-2"></i>Tambah</a>
@@ -7,11 +10,12 @@
 
 				<hr>
 
-				<div class="table-responsive-sm" style="padding-top: 40px;">
+				<div class="table-r
+				esponsive-sm" style="padding-top: 40px;">
 					<table id="minda-table" class="table">
 						<thead class="thead-light">
 							<tr>
-								<th>NIM Siswa</th>
+								<th>NIasdaM Siswa</th>
 								<th>Nama Siswa</th>
 								<th>Aksi</th>
 							</tr>
@@ -39,9 +43,8 @@
 	</template>
 
 	<script>
-		import axios from 'axios'
-		import swal from 'sweetalert2'
-		import 'sweetalert2/src/sweetalert2.scss'
+
+		import LoaderComponent from './LoaderComponent.vue'
 
 		export default {
 
@@ -50,17 +53,26 @@
 			data () {
 				return {
 					students: [],
+					loader: false,
 				}
 			},
+			components: {
+        		'loader': LoaderComponent
+        	},
 			mounted() {
-            	this.loadData()
+				var app = this
+				app.loader = true
+				app.loadData()
+				setTimeout( () => {
+					app.loader = false
+				}, 1200)
         	},
         	methods: {
         		loadData() {
-        			var app = this;        			
+        			var app = this        			
             		axios.get('student')
 	                .then(function (resp) {
-	                	app.students = resp.data;
+	                	app.students = resp.data
 	                })
 	                .catch(function (resp) {
 	                    swal({
@@ -70,10 +82,10 @@
 		                    animation: false,
 		                    customClass: 'animated tada'
 						})
-	                });	
+	                })	
         		},
         		deleteIndex(id, index) {
-        			var app = this;
+        			var app = this
         			swal({				
 						title: 'Ingin menghapus data?',
 						type: 'warning',
@@ -85,7 +97,7 @@
 						preConfirm: function() {
 	                    	return axios.delete('student/' + id)
 	                        .then(function (resp) {
-	                            app.students.splice(index, 1);
+	                            app.students.splice(index, 1)
 	                            app.loadData()
 	                            setTimeout(function() {
 									swal({
@@ -114,5 +126,6 @@
 		}
 	</script>
 
-	<style lang="css" scoped>
+<style lang="css" scoped>
+
 </style>

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login', function() { return view ('auth.login'); });
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
     | Home Routes and Default Controller
     |--------------------------------------------------------------------------
     */
-    // Route::get('/login', function() { return view ('auth.login'); });
+    Route::get('/', function() { return view ('home'); });
     Route::get('/home', function(){ return view('home'); });
 
 	 /*
@@ -31,8 +31,6 @@ Route::group(['middleware' => 'auth'], function () {
     */
     Route::resource('/student', 'StudentController');
     Route::post('/tambah', 'StudentController@tambah');
-    Route::get('/caripromotor/{nama_promotor}', 'PromotorController@caripromotor');
-    Route::get('/datatableApi', 'PromotorController@datatableApi');
 }); /* end of Middleware Auth */
 
 

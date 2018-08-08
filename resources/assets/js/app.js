@@ -10,12 +10,14 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
+import swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
-window.Vue.use(VueRouter);
+window.Vue.use(VueRouter, swal);
 
-import HomeComponent from './components/HomeComponent.vue';
-import TambahComponent from './components/TambahComponent.vue';
-import EditComponent from './components/EditComponent.vue';
+import HomeComponent from './components/HomeComponent.vue'
+import TambahComponent from './components/TambahComponent.vue'
+import EditComponent from './components/EditComponent.vue'
 
 const routes = [
     {
@@ -31,3 +33,4 @@ const routes = [
 const router = new VueRouter({ routes })
 
 const app = new Vue({ router }).$mount('#app')
+					
