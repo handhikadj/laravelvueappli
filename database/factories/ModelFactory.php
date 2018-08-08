@@ -10,27 +10,16 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-/* @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Peserta::class, function (Faker\Generator $faker) {
+$factory->define(App\Student::class, function (Faker\Generator $faker) {
     return [
-        'promotor_id' => function() {
-        	return factory(App\Promotor::class)->create()->id;
-        },
-        'no_peserta' => randomString(),
-        'nama_peserta' => $faker->name
-    ];
-});
-
-/* @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Promotor::class, function (Faker\Generator $faker) {
-    return [
-        'nama_promotor'    => $faker->name,
+        'nim_siswa' => randomString(),
+        'nama_siswa' => $faker->name
     ];
 });
 
 function randomString()
 {
-    $huruf = generateRandomString(1);
+    $huruf = generateRandomString(2);
     $angka = generateRandomInteger(7);
     return $huruf . $angka;
 }

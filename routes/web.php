@@ -1,6 +1,5 @@
 <?php
-use App\Peserta;
-use App\Promotor;
+use App\Student;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -12,12 +11,8 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/login', function() { return view ('auth.login'); });
 Auth::routes();
-
-Route::get('/under-construction', function(){
-    return view('under');
-})->name('under');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -26,24 +21,18 @@ Route::group(['middleware' => 'auth'], function () {
     | Home Routes and Default Controller
     |--------------------------------------------------------------------------
     */
-    Route::get('/', function() { return redirect('/home'); });
-    Route::get('/home', 'PromotorController@index');
+    // Route::get('/login', function() { return view ('auth.login'); });
+    Route::get('/home', function(){ return view('home'); });
 
 	 /*
     |--------------------------------------------------------------------------
-    | Promotor's Routes
+    | Student's Routes
     |--------------------------------------------------------------------------
     */
-    Route::resource('/promotor', 'PromotorController');
+    Route::resource('/student', 'StudentController');
+    Route::post('/tambah', 'StudentController@tambah');
     Route::get('/caripromotor/{nama_promotor}', 'PromotorController@caripromotor');
     Route::get('/datatableApi', 'PromotorController@datatableApi');
-	 /*
-    |--------------------------------------------------------------------------
-    | Peserta's Routes
-    |--------------------------------------------------------------------------
-    */
-	Route::resource('/peserta', 'PesertaController');
-    Route::get('/caripeserta/{nama_peserta}', 'PesertaController@caripeserta');
 }); /* end of Middleware Auth */
 
 

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 0 .25rem .125rem 0 rgba(0,0,0,.05);">
-    <div class="container" style="max-width: 900px;">
+    <div class="container">
 
         <a class="navbar-brand" href="#"><h2>Laravel</h2></a>
 

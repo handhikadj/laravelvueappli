@@ -9,7 +9,8 @@
         document.addEventListener("DOMContentLoaded",function(event) { elm.style.display="block"; });
     </script>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     
     <!-- Styles -->
     <meta charset="utf-8">
@@ -17,7 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     
@@ -38,12 +47,9 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mine.css') }}">
     @auth
-        <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link href="{{ asset('sweetalert2/sweetalert2.7.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('sweetalert2/sweetalert2.7.min.css') }}">
         <script src="{{ asset('fontawesome/svg-with-js/js/fontawesome-all.min.js') }}"></script>
-        <link href="{{ asset('dataTables/css/dataTables-16.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('dataTables/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/mine.css') }}">
      @endauth
 
@@ -58,20 +64,12 @@
         @endguest  
     
     </div> {{-- app --}}
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/for-login.js') }}"></script>
     @auth
-        <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-        </script>
          {{-- dataTables --}}
-        <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('dataTables/js/dataTables-16.min.js') }}"></script>
+         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('sweetalert2/sweetalert2.7.all.min.js') }}"></script>
-        <script src="{{ asset('js/minda-datatable.js') }}"></script>
         
     @endauth
 </body>

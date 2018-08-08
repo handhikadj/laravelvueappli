@@ -1,4 +1,4 @@
-# laravel-simple-mlm
+# laravel-vue-appli
 
 
 ### Installation
@@ -9,7 +9,9 @@
 4. ```php artisan migrate```
 5. ```php artisan db:seed```
 6. Login with email provided in the database with password: secret. username: {email} | password: secret or register
-7. And you're all set!
+7. ```npm install```
+8. ```npm run watch```
+9. And you're all set!
 
 
 

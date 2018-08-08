@@ -304,7 +304,7 @@ input:focus ~ .input-underline:before, input:focus ~ .input-underline:after {
 .input-cari  { 
 	position:relative; 
 	display:block; width:151px; 
-	top: 3px;
+	top: 1.6px;
 	left: 36px;
 }
 
@@ -328,10 +328,6 @@ input:focus ~ .input-underline:before, input:focus ~ .input-underline:after {
 input:focus ~ .input-cari:before, input:focus ~ .input-cari:after {
 	width:50%;
 }
-
-
-
-
 
 /*  Layout  */
 
@@ -380,6 +376,20 @@ input:focus ~ .input-cari:before, input:focus ~ .input-cari:after {
 	text-decoration: none;
 }
 
+.tambah-style{
+	margin-top: 25px;
+	background-color: white;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+	padding: 20px;
+	transition: box-shadow 0.2s ease-in;
+}
+
+.tambah-style:hover{
+	box-shadow: 2px 22px 37px -36px rgba(0,0,0,0.75);
+	transition: box-shadow 0.2s ease-out;
+}
+
 .container-style{
 	background-color: white;
 	max-width: 900px;
@@ -413,11 +423,11 @@ input:focus ~ .input-cari:before, input:focus ~ .input-cari:after {
 }
 
 .datadata{
-	width: 50%;
+	width: 15%;
 	height: 30px;
 	position: absolute;
 	top: 10px;
-	left: 295px;
+	left: 20px;
 	z-index: 20;
 }
 
