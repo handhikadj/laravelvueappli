@@ -10,12 +10,11 @@
 
 				<hr>
 
-				<div class="table-r
-				esponsive-sm" style="padding-top: 40px;">
+				<div class="table-responsive-sm" style="padding-top: 40px;">
 					<table id="minda-table" class="table">
 						<thead class="thead-light">
 							<tr>
-								<th>NIasdaM Siswa</th>
+								<th>NIM Siswa</th>
 								<th>Nama Siswa</th>
 								<th>Aksi</th>
 							</tr>
